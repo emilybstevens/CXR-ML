@@ -20,6 +20,7 @@
 * How can we use our Machine Learning Model to increase efficiency in lung disease treatment?
 * How can a Machine Learning Model Be Implemented in a Real-World Medical Scenario? 
 
+
 ## Our Process & Communication Protocols
 
 #### To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns.

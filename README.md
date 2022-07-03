@@ -26,4 +26,4 @@
 
 #### To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns.
 
-#### A visualization for the performance of the machine learning model will created as well as a dashboard to view the results of the model.
+#### Create performance visualization for machine learning model and dashboard to view results.

@@ -16,7 +16,7 @@ and/or delayed have been associated with increased mortality rates, our model wi
 
 ## Our Data 
 
-Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the ``National Institutes of Health``. The dataset includes 112,120 X-ray images from 30,805 unique patients. 
+Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the ``National Institutes of Health``. The dataset includes 112,120 X-ray images from 30,805 unique patients. </br></br>
 **Citation**: *Wang X, Peng Y, Lu L, Lu Z, Bagheri M, Summers RM. ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases. IEEE CVPR 2017, ChestX-ray8Hospital-ScaleChestCVPR2017_paper.pdf*
 
 ## Our Questions 
@@ -28,6 +28,6 @@ Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/data
 
 ## Our Process & Communication Protocols
 
-#### To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns.
+To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns.</br>
 
-#### Create performance visualization for machine learning model and dashboard to view results.
+Create performance visualization for machine learning model and dashboard to view results.

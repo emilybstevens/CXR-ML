@@ -38,6 +38,10 @@ IEEE CVPR 2017, ChestX-ray8Hospital-ScaleChestCVPR2017_paper.pdf*
 * How can we use our Machine Learning Model to increase efficiency in lung disease treatment?
 * How can a Machine Learning Model Be Implemented in a Real-World Medical Scenario? 
 
+## Google Slides
+View [presentation](https://docs.google.com/presentation/d/1rS79_7x5zY806TvwxHiqctWvBmpmMKyt_Wl2rek10Dc/edit#slide=id.p)
+</br>View [storyboard](https://docs.google.com/presentation/d/1dvesALep-6vo8g94_rq3NUFCwnJmg3bc8BYD8B-T_Y4/edit)
+
 
 ## Our Process & Communication Protocols
 

@@ -54,6 +54,7 @@ Our Storyboard on Google Slides features a visual depiction of our preliminary d
 
 ## Our Process & Communication Protocols
 
-To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns.</br>
+To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns. A series of checklists have been created for all team members to access via Google Sheets, 
+allowing for quick, visual communications regarding what items still need to be completed.</br></br>
 
 Create performance visualization for machine learning model and dashboard to view results.

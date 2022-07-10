@@ -1,0 +1,16 @@
+﻿Condition,Class,30-Day Mortality Rate (%)
+Atelectasis,Emergent,14
+Cardiomegaly,Chronic,
+Consolidation,Emergent,35
+Edema,Emergent,46
+Effusion,Emergent,15
+Emphysema,Chronic,
+Fibrosis,Chronic,
+Hernia,Acute,
+Infiltration,Acute,
+Mass,Acute,NaN
+No Finding,No Finding,NaN
+Nodule,Chronic,3.7
+Pleural Thickening,Chronic,
+Pneumonia,Acute,5
+Pneumothorax,Emergent,

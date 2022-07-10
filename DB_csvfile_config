@@ -1,0 +1,71 @@
+-- Creating table for Data_Entry_2007
+CREATE TABLE Data_Entry_2007 (
+    "Image Index" text COLLATE pg_catalog."default",
+    "Finding Labels" text COLLATE pg_catalog."default",
+    "Follow-up #" bigint,
+    "Patient ID" bigint,
+    "Patient Age" bigint,
+    "Patient Gender" text COLLATE pg_catalog."default",
+    "View Position" text COLLATE pg_catalog."default",
+    "OriginalImage[Width" bigint,
+    "Height]" bigint,
+    "OriginalImagePixelSpacing[x" double precision,
+    "y]" double precision,
+	--FOREIGN KEY ("Finding Labels") REFERENCES Mortality_Rate_Classification ("Condition"),
+	PRIMARY KEY ("Image Index")
+);
+	
+	
+	
+	
+-- Creating table for Mortality Rate Classification
+CREATE TABLE Mortality_Rate_Classification (
+	"Condition" text COLLATE pg_catalog."default",
+	"Class" text COLLATE pg_catalog."default",
+	"30 day Mortality Rate(%)" VARCHAR (5),
+	PRIMARY KEY ("Condition")
+	
+	);
+	
+	UNIQUE ("Condition")
+	
+
+-- To verify data correctly loading from CSV/excel to database
+SELECT * FROM Data_Entry_2007;
+
+SELECT * FROM Mortality_Rate_Classification;
+
+
+
+-- Joining departments and dept_manager tables
+CREATE TABLE data_class AS (
+	SELECT Data_Entry_2007."Image Index",
+     Data_Entry_2007."Finding Labels",
+     Data_Entry_2007."Follow-up #",
+     Data_Entry_2007."Patient ID",
+	 Data_Entry_2007."View Position",
+	 Data_Entry_2007."OriginalImage[Width",
+	 Data_Entry_2007."Height]",
+	 Data_Entry_2007."OriginalImagePixelSpacing[x",
+	 Data_Entry_2007."y]",
+	 Mortality_Rate_Classification."Class"
+FROM Data_Entry_2007
+LEFT JOIN Mortality_Rate_Classification
+ON Data_Entry_2007."Finding Labels" = Mortality_Rate_Classification."Condition");
+
+
+SELECT * FROM data_class;
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

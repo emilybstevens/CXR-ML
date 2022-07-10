@@ -25,6 +25,18 @@ The goal of this model will be to create a machine learning model that can funct
 visual anomalies associated with higher-mortality conditions. With this triage system, radiologists can ensure that they are prioritizing the patients with potentially deadly conditions, 
 reducing the rates of Adverse, Sentinel, and Never Events in ER settings by decreasing the amount of time from ER admittance to hospital admittance for emergent patients. 
 
+## Project Outline
+The scope of this project will be to create a prospective algorithm that can be marketed for use by ER staff for quick triage of CXRs, allowing emergent patients to be prioritized over non-emergent patients. 
+A dashboard will be created that will include a visualization of what the application could look like once built out, an overview of the algorithm's current performance and accuracy, an overview of the data set 
+used to train and test the algorithm, an overview of why the algorithm was created, and an about section detailing information about the team members. 
+
+## Analysis
+A machine learning model will undergo supervised training to understand how to identify various CXR diagnoses. The outputs of the trained model will be analyzed for precision and accuracy, as well as improvement over the original, provisional model. 
+</br></br>
+In addition, the testing/training data set will be analyzed for trends based on various factors, including gender, view position, age, disease level, and triage level. 
+Dashboards will be created for each of these variables, and will be viewable within the overall site created for this project. 
+Tableau will be used to initially investigate potential trends in the data set, and once the team has narrowed down which visuals to include, Javascript & Plotly will be used to visualize the data within the created site. 
+
 ## Our Data 
 
 Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the ``National Institutes of Health``. 
@@ -56,5 +68,8 @@ Our Storyboard on Google Slides features a visual depiction of our preliminary d
 
 To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns. A series of checklists have been created for all team members to access via Google Sheets, 
 allowing for quick, visual communications regarding what items still need to be completed.</br></br>
+
+
+
 
 Create performance visualization for machine learning model and dashboard to view results.

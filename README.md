@@ -69,7 +69,7 @@ Since the dataset was large and relatively unbiased, very minimal pre-processing
 Since each sample could have up to 8 co-occuring diseases, a multilabel classification model was more appropriate. The labels were also encoded into binaries to help with generating a ROC/AUC curve to quantify the visualize the evaluation of the model after it has been trained.  The target labels were aggregated into a list of strings and stored in the `diseases_present` column to facilitate in multilabel classification. Although labels can be encoded and stored as a string of integers, it proved challenging to use a list of integers vs a list of string labels for the categorization hence the list of strings was used as the target variable instead.  Using the Keras `ImageDataGenerator()` and `flow_from_dataframe()` functions, the 
 
 
-* Description of how data was split into training and testing sets
+* Description of how data was split into training and testing sets 
 
 The Preliminary Data is split into training, validation and testing groups. The samples were stratified on their labels to ensure that the distribution of disease labels remained consistent across different sets. The data sets were kept small: 300 training, 75 validation and 75 testing images to ensure efficient model training, focusing on actualization of the model instance prior to optimizing with a larger sample size. 
 

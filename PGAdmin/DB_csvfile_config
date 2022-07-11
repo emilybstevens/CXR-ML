@@ -30,7 +30,7 @@ CREATE TABLE Mortality_Rate_Classification (
 	UNIQUE ("Condition")
 	
 
--- To verify data correctly loading from CSV/excel to database
+-- To verify data correctly loading from CSV to database
 SELECT * FROM Data_Entry_2007;
 
 SELECT * FROM Mortality_Rate_Classification;
@@ -53,9 +53,17 @@ FROM Data_Entry_2007
 LEFT JOIN Mortality_Rate_Classification
 ON Data_Entry_2007."Finding Labels" = Mortality_Rate_Classification."Condition");
 
-
 SELECT * FROM data_class;
 
+
+
+-- Create query to split "Finding Labels" cell to have only one disease
+CREATE TABLE disesase_priority AS (
+SELECT "Image Index",
+	SPLIT_PART("Finding Labels", '|', 1) col1,
+	SPLIT_PART("Finding Labels", '|', 2) col2,
+	SPLIT_PART("Finding Labels", '|', 3) col3
+FROM Data_Entry_2007);
 
 
 

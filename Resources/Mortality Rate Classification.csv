@@ -11,6 +11,6 @@ Infiltration,Acute,,7
 Mass,Acute,NaN,8
 No Finding,No Finding,NaN,15
 Nodule,Chronic,3.7,13
-Pleural Thickening,Chronic,,14
+Pleural_Thickening,Chronic,,14
 Pneumonia,Acute,5,9
 Pneumothorax,Emergent,,5

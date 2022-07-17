@@ -59,21 +59,21 @@ Our Storyboard on Google Slides features a visual depiction of our preliminary d
 
 ## Machine Learning Model
 
-* Decsription of Preliminary Data Preprocessing
+### Decsription of Preliminary Data Preprocessing
 
 Since the dataset was large and relatively unbiased, very minimal pre-processing was required. The images had a consistent size of 1024 x 1024 that can be rescaled using keras' built in data generators. The 'Data_Entry_2017.csv' file had many columns that were unnecessary. The `Image Index` column was used to generate the relative paths of the images and the path values were used as the x_column input that helps the image data generator to find the image file in its respected nested folder. Although the data can be sorted into different folders based on its classes, around 20% of the images had multiple labels in the same image. Additionally, there were more than 100,000 images in total hence sorting into different training, testing folders was deemed inefficient. The features were located in the `Finding Labels` column. The rest of the columns were not discarded since we are unsure of its usage yet. 
 
 
-* Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
+### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
 
 Since each sample could have up to 8 co-occuring diseases, a multilabel classification model was more appropriate. The labels were also encoded into binaries to help with generating a ROC/AUC curve to quantify the visualize the evaluation of the model after it has been trained.  The target labels were aggregated into a list of strings and stored in the `diseases_present` column to facilitate in multilabel classification. Although labels can be encoded and stored as a string of integers, it proved challenging to use a list of integers vs a list of string labels for the categorization hence the list of strings was used as the target variable instead.  Using the Keras `ImageDataGenerator()` and `flow_from_dataframe()` functions, the 
 
 
-* Description of how data was split into training and testing sets 
+### Description of how data was split into training and testing sets 
 
 The Preliminary Data is split into training, validation and testing groups. The samples were stratified on their labels to ensure that the distribution of disease labels remained consistent across different sets. The data sets were kept small: 300 training, 75 validation and 75 testing images to ensure efficient model training, focusing on actualization of the model instance prior to optimizing with a larger sample size. 
 
-* Explanation of model choice, including limits and benefits
+### Explanation of model choice, including limits and benefits
 
 The model is based off of an online tutorial blog by [Vijayabhaskar J](https://vijayabhaskar96.medium.com/multi-label-image-classification-tutorial-with-keras-imagedatagenerator-cd541f8eaf24). The model has two iterations of a double convolutional layer with a maxpool layer that has relu activation functions. The machine will convolve across the image based on the dimensions specified and then the results will be pooled and sent to the next layer. The results are tensors which are just arrays of dot products. 
 

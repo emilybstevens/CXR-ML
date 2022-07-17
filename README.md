@@ -100,10 +100,12 @@ No changes in model choice were made.
 
 ## Dashboard
 
-To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br> 
+To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
 Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate data access points: 
 one that will show a series of Tableau stories discussing high-level analysis of the initial data set, and one that will 
 have a Javascript dashboard allowing users to search up each specific x-ray and the highest triage level associated with that x-ray. 
-While the Tableau stories have been completed, the Javascript requires more work before rolling out. 
+While the Tableau stories have been completed, the Javascript requires more work before rolling out. </br></br> 
+Interactive elements are currently located under `Data->Overview`. `Data->Interactive Dashboard` will house the Javascript dash once it's been completed.    
+Images from initial analysis, as well as machine learning data can found under the `Performance` tab. 
 
 

@@ -84,10 +84,13 @@ Drop out layers are sandwiched between each major layer to ensure that when the 
 Although there are other base models such as the [MobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) exist that can probably better classify the images efficiently without much computing power, the current model provides a framework to understand the basis of a simple convolutional neural network. Iterations of convolution and pooling layers leading to a flattened tensor that can be runthrough a traditional neural network to an output layer provides various points of modifications to optimize the model. Due to the size of the dataset, each training round can become memory intensive. Especially considering that the current model is not optimized to have sufficient dropout of neurons that can help with memory requirements. More epochs is necessary as the accuracy of the model during the training process was seen to be improving. Convolutional neural networks are ideal for image analysis especially when it comes to multilabel classification as there is very little need to pre-process the data. The Image data itself can be processed upon creating a generator instance that can modify the image accordingly to help the neural network digest the information.  
 
 
-## Our Process & Communication Protocols
+## Dashboard
 
-To facilitate collaboration, our group will primarily use our own Slack channel to share updates, questions and concerns. A series of checklists have been created for all team members to access via Google Sheets, 
-allowing for quick, visual communications regarding what items still need to be completed.</br></br>
+To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br> 
+Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate data access points: 
+one that will show a series of Tableau stories discussing high-level analysis of the initial data set, and one that will 
+have a Javascript dashboard allowing users to search up each specific x-ray and the highest triage level associated with that x-ray. 
+While the Tableau stories have been completed, the Javascript requires more work before rolling out. 
 
 
 

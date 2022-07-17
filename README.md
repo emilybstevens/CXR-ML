@@ -93,6 +93,3 @@ have a Javascript dashboard allowing users to search up each specific x-ray and 
 While the Tableau stories have been completed, the Javascript requires more work before rolling out. 
 
 
-
-
-Create performance visualization for machine learning model and dashboard to view results.

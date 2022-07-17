@@ -1,5 +1,15 @@
 # Examining Chest X-Rays Through Machine Learning
 
+
+## Table of Contents
+1. [Our Topic](https://github.com/emilybstevens/CXR-ML#our-topic)
+2. [Project Outline](https://github.com/emilybstevens/CXR-ML#project-outline)
+3. [Analysis](https://github.com/emilybstevens/CXR-ML#analysis)
+4. [Our Data](https://github.com/emilybstevens/CXR-ML#our-data)
+5. [Our Questions](https://github.com/emilybstevens/CXR-ML#our-questions)
+6. [Google Slides](https://github.com/emilybstevens/CXR-ML#google-slides)
+7. [Machine Learning Model](https://github.com/emilybstevens/CXR-ML#machine-learning-model)
+8. [Dashboard](https://github.com/emilybstevens/CXR-ML#dashboard)
 ## Our Topic
 
 ### Overview
@@ -59,12 +69,12 @@ Our Storyboard on Google Slides features a visual depiction of our preliminary d
 
 ## Machine Learning Model
 
-### Decsription of Preliminary Data Preprocessing
+### Decsription of Data Preprocessing
 
 Since the dataset was large and relatively unbiased, very minimal pre-processing was required. The images had a consistent size of 1024 x 1024 that can be rescaled using keras' built in data generators. The 'Data_Entry_2017.csv' file had many columns that were unnecessary. The `Image Index` column was used to generate the relative paths of the images and the path values were used as the x_column input that helps the image data generator to find the image file in its respected nested folder. Although the data can be sorted into different folders based on its classes, around 20% of the images had multiple labels in the same image. Additionally, there were more than 100,000 images in total hence sorting into different training, testing folders was deemed inefficient. The features were located in the `Finding Labels` column. The rest of the columns were not discarded since we are unsure of its usage yet. 
 
 
-### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process
+### Description of feature engineering and feature selection, including their decision-making process
 
 Since each sample could have up to 8 co-occuring diseases, a multilabel classification model was more appropriate. The labels were also encoded into binaries to help with generating a ROC/AUC curve to quantify the visualize the evaluation of the model after it has been trained.  The target labels were aggregated into a list of strings and stored in the `diseases_present` column to facilitate in multilabel classification. Although labels can be encoded and stored as a string of integers, it proved challenging to use a list of integers vs a list of string labels for the categorization hence the list of strings was used as the target variable instead.  Using the Keras `ImageDataGenerator()` and `flow_from_dataframe()` functions, the 
 
@@ -83,6 +93,10 @@ Drop out layers are sandwiched between each major layer to ensure that when the 
 
 Although there are other base models such as the [MobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) exist that can probably better classify the images efficiently without much computing power, the current model provides a framework to understand the basis of a simple convolutional neural network. Iterations of convolution and pooling layers leading to a flattened tensor that can be runthrough a traditional neural network to an output layer provides various points of modifications to optimize the model. Due to the size of the dataset, each training round can become memory intensive. Especially considering that the current model is not optimized to have sufficient dropout of neurons that can help with memory requirements. More epochs is necessary as the accuracy of the model during the training process was seen to be improving. Convolutional neural networks are ideal for image analysis especially when it comes to multilabel classification as there is very little need to pre-process the data. The Image data itself can be processed upon creating a generator instance that can modify the image accordingly to help the neural network digest the information.  
 
+### Explanation of Changes in Model Choice
+No changes in model choice were made. 
+### Description of Model Training, Current and Future
+### Description of Current Accuracy Score
 
 ## Dashboard
 

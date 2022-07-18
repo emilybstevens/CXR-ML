@@ -96,7 +96,10 @@ Although there are other base models such as the [MobileNetV2](https://ai.google
 ### Explanation of Changes in Model Choice
 No changes in model choice were made. 
 ### Description of Model Training, Current and Future
+The model has currently been trained on a maximum of 10 epochs. Future training will involve increasing to 50 epochs, and redefining the way images are processed. 
 ### Description of Current Accuracy Score
+
+Accuracy for the machine changes depending on the category. Some categories have a higher AUC-ROC score, meaning they are more accurate. The highest achieved ROC score was 0.88 for fibrosis. 
 
 ## Dashboard
 

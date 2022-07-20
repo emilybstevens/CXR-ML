@@ -5,7 +5,7 @@ Edema,Emergent,46,c
 Effusion,Emergent,15,d
 Pneumothorax,Emergent,,e
 Hernia,Acute,,f
-Infiltration,Acute,,g
+Infiltration,Emergent,,g
 Mass,Acute,NaN,h
 Pneumonia,Acute,5,i
 Cardiomegaly,Chronic,,j

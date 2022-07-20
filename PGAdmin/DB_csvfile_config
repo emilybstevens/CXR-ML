@@ -11,7 +11,6 @@ CREATE TABLE Data_Entry_2007 (
     "Height]" bigint,
     "OriginalImagePixelSpacing[x" double precision,
     "y]" double precision,
-	--FOREIGN KEY ("Finding Labels") REFERENCES Mortality_Rate_Classification ("Condition"),
 	PRIMARY KEY ("Image Index")
 );
 	
@@ -23,12 +22,10 @@ CREATE TABLE Mortality_Rate_Classification (
 	"Condition" text COLLATE pg_catalog."default",
 	"Class" text COLLATE pg_catalog."default",
 	"30 day Mortality Rate(%)" VARCHAR (5),
-	PRIMARY KEY ("Condition")
-	
+	"Tirage Rank" VARCHAR (2),
+	PRIMARY KEY ("Condition")	
 	);
-	
-	UNIQUE ("Condition")
-	
+
 
 -- To verify data correctly loading from CSV to database
 SELECT * FROM Data_Entry_2007;
@@ -37,43 +34,123 @@ SELECT * FROM Mortality_Rate_Classification;
 
 
 
--- Joining departments and dept_manager tables
-CREATE TABLE data_class AS (
-	SELECT Data_Entry_2007."Image Index",
-     Data_Entry_2007."Finding Labels",
-     Data_Entry_2007."Follow-up #",
-     Data_Entry_2007."Patient ID",
-	 Data_Entry_2007."View Position",
-	 Data_Entry_2007."OriginalImage[Width",
-	 Data_Entry_2007."Height]",
-	 Data_Entry_2007."OriginalImagePixelSpacing[x",
-	 Data_Entry_2007."y]",
-	 Mortality_Rate_Classification."Class"
-FROM Data_Entry_2007
-LEFT JOIN Mortality_Rate_Classification
-ON Data_Entry_2007."Finding Labels" = Mortality_Rate_Classification."Condition");
-
-SELECT * FROM data_class;
 
 
 
--- Create query to split "Finding Labels" cell to have only one disease
-CREATE TABLE disesase_priority AS (
+
+-- Create table to split "Finding Labels" cell to have only one disease
+CREATE TABLE disease_name_split AS (
 SELECT "Image Index",
-	SPLIT_PART("Finding Labels", '|', 1) col1,
-	SPLIT_PART("Finding Labels", '|', 2) col2,
-	SPLIT_PART("Finding Labels", '|', 3) col3
+	SPLIT_PART("Finding Labels", '|', 1) split_name1,
+	SPLIT_PART("Finding Labels", '|', 2) split_name2,
+	SPLIT_PART("Finding Labels", '|', 3) split_name3,
+	SPLIT_PART("Finding Labels", '|', 4) split_name4,
+	SPLIT_PART("Finding Labels", '|', 5) split_name5,
+	SPLIT_PART("Finding Labels", '|', 6) split_name6,
+	SPLIT_PART("Finding Labels", '|', 7) split_name7,
+	SPLIT_PART("Finding Labels", '|', 8) split_name8,
+	SPLIT_PART("Finding Labels", '|', 9) split_name9,
+	SPLIT_PART("Finding Labels", '|', 10) split_name10,
+	SPLIT_PART("Finding Labels", '|', 11) split_name11,
+	SPLIT_PART("Finding Labels", '|', 12) split_name12,
+	SPLIT_PART("Finding Labels", '|', 13) split_name13,
+	SPLIT_PART("Finding Labels", '|', 14) split_name14
 FROM Data_Entry_2007);
 
 
+SELECT * FROM disease_name_split;
+
+--Add columns to disease_name_split to rank each disease name
+ALTER TABLE disease_name_split
+ADD COLUMN "Tirage Rank1" VARCHAR (2),
+ADD COLUMN "Tirage Rank2" VARCHAR (2),
+ADD COLUMN "Tirage Rank3" VARCHAR (2),
+ADD COLUMN "Tirage Rank4" VARCHAR (2),
+ADD COLUMN "Tirage Rank5" VARCHAR (2),
+ADD COLUMN "Tirage Rank6" VARCHAR (2),
+ADD COLUMN "Tirage Rank7" VARCHAR (2),
+ADD COLUMN "Tirage Rank8" VARCHAR (2),
+ADD COLUMN "Tirage Rank9" VARCHAR (2),
+ADD COLUMN "Tirage Rank10" VARCHAR (2),
+ADD COLUMN "Tirage Rank11" VARCHAR (2),
+ADD COLUMN "Tirage Rank12" VARCHAR (2),
+ADD COLUMN "Tirage Rank13" VARCHAR (2),
+ADD COLUMN "Tirage Rank14" VARCHAR (2),
+ADD COLUMN ranking_value VARCHAR (2);
+
+--Update disease_name_split to rank disease names based on mortality_rate_classification table
+UPDATE disease_name_split 
+	SET "Tirage Rank1" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name1);
+UPDATE disease_name_split
+	SET "Tirage Rank2" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name2);
+UPDATE disease_name_split
+	SET "Tirage Rank3" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name3);
+UPDATE disease_name_split
+	SET "Tirage Rank4" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name4);
+UPDATE disease_name_split
+	SET "Tirage Rank5" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name5);
+UPDATE disease_name_split
+	SET "Tirage Rank6" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name6);
+UPDATE disease_name_split
+	SET "Tirage Rank7" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name7);
+UPDATE disease_name_split
+	SET "Tirage Rank8" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name8);
+UPDATE disease_name_split
+	SET "Tirage Rank9" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name9);
+UPDATE disease_name_split
+	SET "Tirage Rank10" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name10);
+UPDATE disease_name_split
+	SET "Tirage Rank11" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name11);
+UPDATE disease_name_split
+	SET "Tirage Rank12" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name12);
+UPDATE disease_name_split
+	SET "Tirage Rank13" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name13);
+UPDATE disease_name_split
+	SET "Tirage Rank14" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name14);
 
 
-
-
-
-
-
-
+--Update disease_name_split table to determine ranking value for each x-ray image
+UPDATE disease_name_split
+	SET ranking_value = (LEAST("Tirage Rank1", "Tirage Rank2", "Tirage Rank3", "Tirage Rank4", "Tirage Rank5", "Tirage Rank6", "Tirage Rank7", "Tirage Rank8", "Tirage Rank9", "Tirage Rank10", "Tirage Rank11", "Tirage Rank12", "Tirage Rank13", "Tirage Rank14"))
 
 	
-	
+--Add columns to disease_name_split to rank each disease name
+ALTER TABLE disease_name_split
+ADD COLUMN "Priority Label" text COLLATE pg_catalog."default",
+ADD COLUMN "Tirage Level" text COLLATE pg_catalog."default"
+
+
+--Update disease_name_split to get priority label and tirage level based on mortality_rate_classification Tirage Condition" = split_name1);
+UPDATE disease_name_split
+	SET "Priority Label" = (SELECT Mortality_Rate_Classification."Condition" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Tirage Rank" = ranking_value);
+UPDATE disease_name_split
+	SET "Tirage Level" = (SELECT Mortality_Rate_Classification."Class" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Tirage Rank" = ranking_value);
+
+SELECT * FROM disease_name_split;
+
+
+
+
+
+-- Joining multiple tables to get priority label and classifications to Data_Entry_2007 table
+CREATE TABLE data_classification AS (
+	SELECT Data_Entry_2007."Image Index",
+    Data_Entry_2007."Finding Labels",
+    Data_Entry_2007."Follow-up #",
+    Data_Entry_2007."Patient ID",
+	Data_Entry_2007."View Position",
+	Data_Entry_2007."OriginalImage[Width",
+	Data_Entry_2007."Height]",
+	Data_Entry_2007."OriginalImagePixelSpacing[x",
+	Data_Entry_2007."y]",
+	disease_name_split."Priority Label",
+	disease_name_split."Tirage Level"
+	FROM Data_Entry_2007	
+INNER JOIN disease_name_split
+ON Data_Entry_2007."Image Index" = disease_name_split."Image Index");
+
+SELECT * FROM data_classification;
+
+
+
+

@@ -1,16 +1,16 @@
 ﻿Condition,Class,30-Day Mortality Rate (%),Tirage Rank
-Atelectasis,Emergent,14,1
-Cardiomegaly,Chronic,,10
-Consolidation,Emergent,35,2
-Edema,Emergent,46,3
-Effusion,Emergent,15,4
-Emphysema,Chronic,,11
-Fibrosis,Chronic,,12
-Hernia,Acute,,6
-Infiltration,Acute,,7
-Mass,Acute,NaN,8
-No Finding,No Finding,NaN,15
-Nodule,Chronic,3.7,13
-Pleural_Thickening,Chronic,,14
-Pneumonia,Acute,5,9
-Pneumothorax,Emergent,,5
+Atelectasis,Emergent,14,a
+Consolidation,Emergent,35,b
+Edema,Emergent,46,c
+Effusion,Emergent,15,d
+Pneumothorax,Emergent,,e
+Hernia,Acute,,f
+Infiltration,Acute,,g
+Mass,Acute,NaN,h
+Pneumonia,Acute,5,i
+Cardiomegaly,Chronic,,j
+Emphysema,Chronic,,k
+Fibrosis,Chronic,,l
+Nodule,Chronic,3.7,m
+Pleural_Thickening,Chronic,,n
+No Finding,No Finding,NaN,o

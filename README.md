@@ -1,5 +1,5 @@
 # Examining Chest X-Rays Through Machine Learning
- 
+  
 
 ## Table of Contents
 1. [Our Topic](https://github.com/emilybstevens/CXR-ML#our-topic)

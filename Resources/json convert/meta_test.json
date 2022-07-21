@@ -1,0 +1,42 @@
+{
+    "1": 
+        {"image_index": "00000001_000.png", 
+        "patient_id": 1, 
+        "age": 58, 
+        "view_position": "PA", 
+        "all_dz_found": "Cardiomegaly", 
+        "highest_class": "Cardiomegaly", 
+        "highest_label": "Chronic"}, 
+    "2": 
+        {"image_index": "00000001_001.png", 
+        "patient_id": 1, 
+        "age": 58, 
+        "view_position": "PA", 
+        "all_dz_found": "Cardiomegaly|Emphysema", 
+        "highest_class": "Cardiomegaly", 
+        "highest_label": "Chronic"}, 
+    "3": 
+        {"image_index": "00000001_002.png", 
+        "patient_id": 1, 
+        "age": 58, 
+        "view_position": "PA", 
+        "all_dz_found": "Cardiomegaly|Effusion", 
+        "highest_class": "Effusion", 
+        "highest_label": "Emergent"}, 
+    "4": 
+        {"image_index": "00000002_000.png", 
+        "patient_id": 2, 
+        "age": 81, 
+        "view_position": "PA", 
+        "all_dz_found": "No Finding", 
+        "highest_class": "No Finding", 
+        "highest_label": "No Finding"}, 
+    "5": 
+        {"image_index": "00000003_000.png", 
+        "patient_id": 3, 
+        "age": 81, 
+        "view_position": "PA", 
+        "all_dz_found": "Hernia", 
+        "highest_class": "Hernia", 
+        "highest_label": "Acute"}
+}

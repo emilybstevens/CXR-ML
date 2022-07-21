@@ -17,7 +17,7 @@
 To create a Machine Learning model that can analyze a patient's chest X-rays to 
 classify lung disease and flag X-rays displaying conditions with higher mortality rates in order to assist 
 healthcare professionals in triaging high-risk patients faster. 
-
+ 
 ### Reasons for Selecting Topic
 
 In recent years, the high rates of emergent lung disease have revealed a weakness in emergency medicine: emergency radiology. 

@@ -22,7 +22,7 @@ CREATE TABLE Mortality_Rate_Classification (
 	"Condition" text COLLATE pg_catalog."default",
 	"Class" text COLLATE pg_catalog."default",
 	"30 day Mortality Rate(%)" VARCHAR (5),
-	"Tirage Rank" VARCHAR (2),
+	"Triage Rank" VARCHAR (2),
 	PRIMARY KEY ("Condition")	
 	);
 
@@ -62,69 +62,69 @@ SELECT * FROM disease_name_split;
 
 --Add columns to disease_name_split to rank each disease name
 ALTER TABLE disease_name_split
-ADD COLUMN "Tirage Rank1" VARCHAR (2),
-ADD COLUMN "Tirage Rank2" VARCHAR (2),
-ADD COLUMN "Tirage Rank3" VARCHAR (2),
-ADD COLUMN "Tirage Rank4" VARCHAR (2),
-ADD COLUMN "Tirage Rank5" VARCHAR (2),
-ADD COLUMN "Tirage Rank6" VARCHAR (2),
-ADD COLUMN "Tirage Rank7" VARCHAR (2),
-ADD COLUMN "Tirage Rank8" VARCHAR (2),
-ADD COLUMN "Tirage Rank9" VARCHAR (2),
-ADD COLUMN "Tirage Rank10" VARCHAR (2),
-ADD COLUMN "Tirage Rank11" VARCHAR (2),
-ADD COLUMN "Tirage Rank12" VARCHAR (2),
-ADD COLUMN "Tirage Rank13" VARCHAR (2),
-ADD COLUMN "Tirage Rank14" VARCHAR (2),
+ADD COLUMN "Triage Rank1" VARCHAR (2),
+ADD COLUMN "Triage Rank2" VARCHAR (2),
+ADD COLUMN "Triage Rank3" VARCHAR (2),
+ADD COLUMN "Triage Rank4" VARCHAR (2),
+ADD COLUMN "Triage Rank5" VARCHAR (2),
+ADD COLUMN "Triage Rank6" VARCHAR (2),
+ADD COLUMN "Triage Rank7" VARCHAR (2),
+ADD COLUMN "Triage Rank8" VARCHAR (2),
+ADD COLUMN "Triage Rank9" VARCHAR (2),
+ADD COLUMN "Triage Rank10" VARCHAR (2),
+ADD COLUMN "Triage Rank11" VARCHAR (2),
+ADD COLUMN "Triage Rank12" VARCHAR (2),
+ADD COLUMN "Triage Rank13" VARCHAR (2),
+ADD COLUMN "Triage Rank14" VARCHAR (2),
 ADD COLUMN ranking_value VARCHAR (2);
 
 --Update disease_name_split to rank disease names based on mortality_rate_classification table
 UPDATE disease_name_split 
-	SET "Tirage Rank1" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name1);
+	SET "Triage Rank1" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name1);
 UPDATE disease_name_split
-	SET "Tirage Rank2" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name2);
+	SET "Triage Rank2" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name2);
 UPDATE disease_name_split
-	SET "Tirage Rank3" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name3);
+	SET "Triage Rank3" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name3);
 UPDATE disease_name_split
-	SET "Tirage Rank4" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name4);
+	SET "Triage Rank4" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name4);
 UPDATE disease_name_split
-	SET "Tirage Rank5" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name5);
+	SET "Triage Rank5" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name5);
 UPDATE disease_name_split
-	SET "Tirage Rank6" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name6);
+	SET "Triage Rank6" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name6);
 UPDATE disease_name_split
-	SET "Tirage Rank7" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name7);
+	SET "Triage Rank7" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name7);
 UPDATE disease_name_split
-	SET "Tirage Rank8" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name8);
+	SET "Triage Rank8" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name8);
 UPDATE disease_name_split
-	SET "Tirage Rank9" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name9);
+	SET "Triage Rank9" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name9);
 UPDATE disease_name_split
-	SET "Tirage Rank10" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name10);
+	SET "Triage Rank10" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name10);
 UPDATE disease_name_split
-	SET "Tirage Rank11" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name11);
+	SET "Triage Rank11" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name11);
 UPDATE disease_name_split
-	SET "Tirage Rank12" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name12);
+	SET "Triage Rank12" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name12);
 UPDATE disease_name_split
-	SET "Tirage Rank13" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name13);
+	SET "Triage Rank13" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name13);
 UPDATE disease_name_split
-	SET "Tirage Rank14" = (SELECT Mortality_Rate_Classification."Tirage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name14);
+	SET "Triage Rank14" = (SELECT Mortality_Rate_Classification."Triage Rank" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Condition" = split_name14);
 
 
 --Update disease_name_split table to determine ranking value for each x-ray image
 UPDATE disease_name_split
-	SET ranking_value = (LEAST("Tirage Rank1", "Tirage Rank2", "Tirage Rank3", "Tirage Rank4", "Tirage Rank5", "Tirage Rank6", "Tirage Rank7", "Tirage Rank8", "Tirage Rank9", "Tirage Rank10", "Tirage Rank11", "Tirage Rank12", "Tirage Rank13", "Tirage Rank14"))
+	SET ranking_value = (LEAST("Triage Rank1", "Triage Rank2", "Triage Rank3", "Triage Rank4", "Triage Rank5", "Triage Rank6", "Triage Rank7", "Triage Rank8", "Triage Rank9", "Triage Rank10", "Triage Rank11", "Triage Rank12", "Triage Rank13", "Triage Rank14"))
 
 	
 --Add columns to disease_name_split to rank each disease name
 ALTER TABLE disease_name_split
 ADD COLUMN "Priority Label" text COLLATE pg_catalog."default",
-ADD COLUMN "Tirage Level" text COLLATE pg_catalog."default"
+ADD COLUMN "Triage Level" text COLLATE pg_catalog."default"
 
 
 --Update disease_name_split to get priority label and tirage level based on mortality_rate_classification Tirage Condition" = split_name1);
 UPDATE disease_name_split
-	SET "Priority Label" = (SELECT Mortality_Rate_Classification."Condition" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Tirage Rank" = ranking_value);
+	SET "Priority Label" = (SELECT Mortality_Rate_Classification."Condition" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Triage Rank" = ranking_value);
 UPDATE disease_name_split
-	SET "Tirage Level" = (SELECT Mortality_Rate_Classification."Class" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Tirage Rank" = ranking_value);
+	SET "Triage Level" = (SELECT Mortality_Rate_Classification."Class" FROM Mortality_Rate_Classification WHERE Mortality_Rate_Classification."Triage Rank" = ranking_value);
 
 SELECT * FROM disease_name_split;
 
@@ -138,16 +138,19 @@ CREATE TABLE data_classification AS (
     Data_Entry_2007."Finding Labels",
     Data_Entry_2007."Follow-up #",
     Data_Entry_2007."Patient ID",
+	Data_Entry_2007."Patient Age",
+    Data_Entry_2007."Patient Gender",
 	Data_Entry_2007."View Position",
 	Data_Entry_2007."OriginalImage[Width",
 	Data_Entry_2007."Height]",
 	Data_Entry_2007."OriginalImagePixelSpacing[x",
 	Data_Entry_2007."y]",
 	disease_name_split."Priority Label",
-	disease_name_split."Tirage Level"
+	disease_name_split."Triage Level"
 	FROM Data_Entry_2007	
 INNER JOIN disease_name_split
-ON Data_Entry_2007."Image Index" = disease_name_split."Image Index");
+ON Data_Entry_2007."Image Index" = disease_name_split."Image Index")
+ORDER BY Data_Entry_2007."Image Index";
 
 SELECT * FROM data_classification;
 

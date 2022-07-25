@@ -103,11 +103,13 @@ Accuracy for the machine changes depend on the category. Some categories have a 
 ## Dashboard
 
 To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
-Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate data access points: 
-one that will show a series of Tableau stories discussing high-level analysis of the initial data set, and one that will 
-have a Javascript dashboard allowing users to search up each specific x-ray and the highest triage level associated with that x-ray. 
-While the Tableau stories have been completed, the Javascript requires more work before rolling out. </br></br> 
-Interactive elements are currently located under `Data->Overview`. `Data->Interactive Dashboard` will house the Javascript dash once it's been completed.    
+Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate pages: 
+the first page will contain pre-fabricated Tableau spreadsheets to interact with, 
+while the other page will include two separate Javascript dashboards (one dedicated to inidividual sample data, and one dedicated to filtering data by various demographics). </br></br> 
+The Javascript page is currently located under `Data->Interactive Dashboard`. Please note, the code is currently running very slowly, as there are over 100k+ datapoints being accessed. 
+The current dash requires performance enhancement for speed. Give it time to load, or it will crash. </br></br> 
+The secondary Javascript dash is currently in the works. </br></br> 
+The Javascript page is currently located under `Data->Overview`.</br></br> 
 Images from initial analysis, as well as machine learning data can found under the `Performance` tab. 
 
 

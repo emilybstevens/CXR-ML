@@ -49,10 +49,14 @@ Tableau will be used to initially investigate potential trends in the data set, 
 
 ## Our Data 
 
-Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the ``National Institutes of Health``. 
+### Data Source:
+Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the National Institutes of Health (NIH). 
 The dataset includes 112,120 X-ray images from 30,805 unique patients. </br></br>
 **Citation**: *Wang X, Peng Y, Lu L, Lu Z, Bagheri M, Summers RM. ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases. 
 IEEE CVPR 2017, ChestX-ray8Hospital-ScaleChestCVPR2017_paper.pdf*
+
+### Data Configuration:
+The NIH Data_Entry_2007.csv and Mortality_Rate_Classification.csv files are loaded into the "Google Colab to AWS.ipynb" notebook where it is formatted and coded to Amazon Web Services (AWS). PGAdmin accesses the data files via the AWS connection and the queries from the "DB_csvfile_config" are run to split the multi-label x-ray images. Once the multi-labels are split apart, they are ranked against the mortality table to identify the triage level for each x-ray images. The data_prep.ipynb jupyter notebook accesses the data via PGAdmin and pre-processing the data for the machine learning model and training and testing datasets are created. From here the data_prep.ipynb is fed into the beta_net.ipynb file for the machine learning model. 
 
 ## Our Questions 
 

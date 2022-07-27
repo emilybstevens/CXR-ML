@@ -1,6 +1,6 @@
 # Examining Chest X-Rays Through Machine Learning
-
-
+   
+ 
 ## Table of Contents
 1. [Our Topic](https://github.com/emilybstevens/CXR-ML#our-topic)
 2. [Project Outline](https://github.com/emilybstevens/CXR-ML#project-outline)
@@ -17,7 +17,7 @@
 To create a Machine Learning model that can analyze a patient's chest X-rays to 
 classify lung disease and flag X-rays displaying conditions with higher mortality rates in order to assist 
 healthcare professionals in triaging high-risk patients faster. 
-
+ 
 ### Reasons for Selecting Topic
 
 In recent years, the high rates of emergent lung disease have revealed a weakness in emergency medicine: emergency radiology. 
@@ -49,10 +49,14 @@ Tableau will be used to initially investigate potential trends in the data set, 
 
 ## Our Data 
 
-Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the ``National Institutes of Health``. 
+### Data Source:
+Data for this analysis will be sourced from [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data?select=README_CHESTXRAY.pdf), utilizing chest X-rays compiled by the National Institutes of Health (NIH). 
 The dataset includes 112,120 X-ray images from 30,805 unique patients. </br></br>
 **Citation**: *Wang X, Peng Y, Lu L, Lu Z, Bagheri M, Summers RM. ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases. 
 IEEE CVPR 2017, ChestX-ray8Hospital-ScaleChestCVPR2017_paper.pdf*
+
+### Data Configuration:
+The NIH Data_Entry_2007.csv and Mortality_Rate_Classification.csv files are loaded into the "Google Colab to AWS.ipynb" notebook where it is formatted and coded to Amazon Web Services (AWS). PGAdmin accesses the data files via the AWS connection and the queries from the "DB_csvfile_config" are run to split the multi-label x-ray images. Once the multi-labels are split apart, they are ranked against the mortality table to identify the triage level for each x-ray images. The data_prep.ipynb jupyter notebook accesses the data via PGAdmin and pre-processing the data for the machine learning model and training and testing datasets are created. From here the data_prep.ipynb is fed into the beta_net.ipynb file for the machine learning model. 
 
 ## Our Questions 
 
@@ -103,11 +107,13 @@ Accuracy for the machine changes depend on the category. Some categories have a 
 ## Dashboard
 
 To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
-Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate data access points: 
-one that will show a series of Tableau stories discussing high-level analysis of the initial data set, and one that will 
-have a Javascript dashboard allowing users to search up each specific x-ray and the highest triage level associated with that x-ray. 
-While the Tableau stories have been completed, the Javascript requires more work before rolling out. </br></br> 
-Interactive elements are currently located under `Data->Overview`. `Data->Interactive Dashboard` will house the Javascript dash once it's been completed.    
+Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate pages: 
+the first page will contain pre-fabricated Tableau spreadsheets to interact with, 
+while the other page will include two separate Javascript dashboards (one dedicated to inidividual sample data, and one dedicated to filtering data by various demographics). </br></br> 
+The Javascript page is currently located under `Data->Interactive Dashboard`. Please note, the code is currently running very slowly, as there are over 100k+ datapoints being accessed. 
+The current dash requires performance enhancement for speed. Give it time to load, or it will crash. </br></br> 
+The secondary Javascript dash is currently in the works. </br></br> 
+The Javascript page is currently located under `Data->Overview`.</br></br> 
 Images from initial analysis, as well as machine learning data can found under the `Performance` tab. 
 
 

@@ -147,6 +147,7 @@ The current delta_model has been trained to 6 epochs. Although the architecture 
 - reducing the total number of images for the training set. 
 - reducing the noise through a reduction of images without disease labels. 
 - reducing the number of images from disease labels with higher image counts if overfitting is suspected. 
+
 Once the dataset is optimized, more base pre-trained layers should be explored to see if there is a better model that is suited for Multilabel classification. Ideally, this model should be able to process images in greyscale without batching required. This would further reduce noise and alleviate memory and processing requirements for the model to be viable across all processing systems. 
 
 ## Dashboard

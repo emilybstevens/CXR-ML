@@ -75,10 +75,34 @@ Our Storyboard on Google Slides features a visual depiction of our preliminary d
 
 ### Decsription of Data Preprocessing
 
-Since the dataset was large and relatively unbiased, very minimal pre-processing was required. The images had a consistent size of 1024 x 1024 that can be rescaled using keras' built in data generators. The 'Data_Entry_2017.csv' file had many columns that were unnecessary. The `Image Index` column was used to generate the relative paths of the images and the path values were used as the x_column input that helps the image data generator to find the image file in its respected nested folder. Although the data can be sorted into different folders based on its classes, around 20% of the images had multiple labels in the same image. Additionally, there were more than 100,000 images in total hence sorting into different training, testing folders was deemed inefficient. The features were located in the `Finding Labels` column. The rest of the columns were not discarded since we are unsure of its usage yet. 
+The dataset included mroe than 100,000 images with 14 total unique disease labels. Each image could have multiple disease labels, with a maximum of 8 co-occuring labels within one image. The classification model seeks to identify these disease labels individually across all images. However, the distribution of each disease label is extremely unbalanced with images without a disease label `['No Finding']` representing more than half of the total images. Due to the large size of the dataset, it was relatively unbiased. Despite this, the number of images without disease labels required pruning to ensure that the training set included sufficient number of samples per disease label. 25,000 images without a disease label (1/3 the total number of disease free images) were extracted and divided between the different sets. Additionally, due to the small number of image samples for Hernia (<200), images with this disease labels were dropped from the set. This reduces the final number of images to around 80,000 for splitting between sets. Below is a bar graph representing the distribution of labels in the final dataset: 
 
+![label_distribution](https://user-images.githubusercontent.com/99558296/181439630-2cb06127-8b15-4a34-b7f0-50921e1f4db7.png)
+
+The target number of images in each of the sets were: 30,000 training images, 10,000 validation images, and 10,000 testing images. These sets were separated in order to ensure that the model does not encounter the same images between different sets. The sets were split using scikit-learn's `train_test_split()` function by stratifying the disease labels to ensure that the distribution of the labels were preserved across the different sets.
 
 ### Description of feature engineering and feature selection, including their decision-making process
+
+Since the images were spread across 12 total folders with around 10,000 images per folder, the paths towards the individual images were saved in a new column of the dataframe. This `['path']` column was used as the x variable for the neural network. The labels located in the `['Finding Labels']` column were one-hot encoded using scikit-multilearn's `MultiLabelBinarizer()` to produce 13 unique columns of disease labels containing the binarized target variables. Images without a disease label were 0 across all 13 columns. The final disease labels were: 
+
+- Atelectasis,
+- Cardiomegaly,
+- Consolidation,
+- Edema,
+- Effusion,
+- Emphysema,
+- Fibrosis,
+- Infiltration,
+- Mass,
+- Nodule,
+- Pleural_Thickening,
+- Pneumonia,
+- Pneumothorax
+
+Finally, each datasets was split between the `X = ['path']` and `y = ['disease_labels']` before they were fed into custom image-pre-processing and batching functions that generate batches of image-data. Each dataset produces a batch of 32 images with their associated labels for the training and validation sets and without labels for the testing set as this prevents clogging in the processing memory of the machine. This is especially important for the training set as random image augmentations performed in the set were saved in cache. The custom batching function uses tensorflow's `autotune` class to adapt the batching based on the memory of the system. 
+
+The image augmentation was lar
+
 
 Since each sample could have up to 8 co-occuring diseases, a multilabel classification model was more appropriate. The labels were encoded into binaries to help with generating a ROC/AUC curve to quantify the visualize evaluation of the model after being trained.  The target labels were aggregated into a list of strings and stored in the `diseases_present` column to facilitate in multilabel classification. Although labels can be encoded and stored as a string of integers, it proved challenging to use a list of integers vs a list of string labels for the categorization hence the list of strings was used as the target variable instead.  Using the Keras `ImageDataGenerator()` and `flow_from_dataframe()` functions, we are able to perform image augmentation while training the model. Pandas dataframe and a path directory are taken in to generate batches of augmented/normalized data.
 
@@ -106,7 +130,7 @@ Accuracy for the machine changes depend on the category. Some categories have a 
 
 ## Dashboard
 
-To view dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
+To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
 Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate pages: 
 the first page will contain pre-fabricated Tableau spreadsheets to interact with, 
 while the other page will include two separate Javascript dashboards (one dedicated to inidividual sample data, and one dedicated to filtering data by various demographics). </br></br> 

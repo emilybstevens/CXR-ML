@@ -106,7 +106,7 @@ Accuracy for the machine changes depend on the category. Some categories have a 
 
 ## Dashboard
 
-To view preliminary dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
+To view dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
 Please note: The data dashboard is still a work in progress. The intent is to eventually have two separate pages: 
 the first page will contain pre-fabricated Tableau spreadsheets to interact with, 
 while the other page will include two separate Javascript dashboards (one dedicated to inidividual sample data, and one dedicated to filtering data by various demographics). </br></br> 

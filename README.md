@@ -56,7 +56,7 @@ The dataset includes 112,120 X-ray images from 30,805 unique patients. </br></br
 IEEE CVPR 2017, ChestX-ray8Hospital-ScaleChestCVPR2017_paper.pdf*
 
 ### Data Configuration:
-The NIH Data_Entry_2007.csv and Mortality_Rate_Classification.csv files are loaded into the "Google Colab to AWS.ipynb" notebook where it is formatted and coded to Amazon Web Services (AWS). PGAdmin accesses the data files via the AWS connection and the queries from the "DB_csvfile_config" are run to split the multi-label x-ray images. Once the multi-labels are split apart, they are ranked against the mortality table to identify the triage level for each x-ray images. The data_prep.ipynb jupyter notebook accesses the data via PGAdmin and pre-processing the data for the machine learning model and training and testing datasets are created. From here the data_prep.ipynb is fed into the beta_net.ipynb file for the machine learning model. 
+The NIH Data_Entry_2007.csv and Mortality_Rate_Classification.csv files are loaded into the "Google Colab to AWS.ipynb" notebook where it is formatted and coded to Amazon Web Services (AWS). PGAdmin accesses the data files via the AWS connection and the queries from the "DB_csvfile_config" are run to split the multi-label x-ray images. Once the multi-labels are split apart, they are ranked against the mortality table to identify the triage level for each x-ray images. The "data_prep - pgadmin connection.ipynb" jupyter notebook accesses the data via PGAdmin and pre-processing the data for the machine learning model and training and testing datasets are created. From here the data_prep.ipynb is fed into the beta_net.ipynb file for the machine learning model. 
 
 ## Our Questions 
 

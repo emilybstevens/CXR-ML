@@ -1,0 +1,17 @@
+F1 Score of 0.325 for 6 epochs. 
+Training stopped early due to lack of improvement in val_loss by 0.001 within 2 epochs. 
+Confusion matrices per label display that our model is not good at feature extraction despite transfer learning. This could be attributed to the large amount of noise coming from the images without labels. 
+This can be validated by looking at the distribution of the lack of true positives in disease labels with smaller samples compared to the rest of the labels. 
+Additionally, labels with larger samples such as Atelactasis are being overfitted. 
+
+ResNet is a pre-trained feature extraction layer consisting of convolution x maxpooling layers that is 101 layers deep. 
+Features extracted from this layer are then flattened and analyzed in the subsequent layers. 
+Dropout layers prevent overfitting. 
+ResNet layer can be fine-tuned (retrained) 
+ReLu Activation functions keep the values small. 
+Final Output layer has a sigmoid activation function for individual probability output across 13 disease labels. 
+
+Random Distortions in batches of images generated. 
+The example circled in the batch is a random rotation of the image.
+This only applies to the training set as to prevent the CNN from overfitting features by making the model work harder to extract the features from non-standard images. 
+Improves generalization. 

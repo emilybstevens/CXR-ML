@@ -150,6 +150,8 @@ The current delta_model has been trained to 6 epochs. Although the architecture 
 
 Once the dataset is optimized, more base pre-trained layers should be explored to see if there is a better model that is suited for Multilabel classification. Ideally, this model should be able to process images in greyscale without batching required. This would further reduce noise and alleviate memory and processing requirements for the model to be viable across all processing systems. 
 
+The model should get deployed with a smaller feature extraction layer to enable faster loadtimes. The deployment should focus on not only classifying the diseases but also to provide accurate triage classifications as well. The Triage classifications can be simply computed based on the output of the neural net. 
+
 ## Dashboard
 
 To view dashboard, please click [here](https://emilybstevens.github.io/xraydar/). </br></br>  
